@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/parwisharsa/static/css/main.bad6d679.chunk.css",
+    "main.js": "/parwisharsa/static/js/main.5376b802.chunk.js",
+    "main.js.map": "/parwisharsa/static/js/main.5376b802.chunk.js.map",
+    "runtime-main.js": "/parwisharsa/static/js/runtime-main.686a3939.js",
+    "runtime-main.js.map": "/parwisharsa/static/js/runtime-main.686a3939.js.map",
+    "static/js/2.3ae43343.chunk.js": "/parwisharsa/static/js/2.3ae43343.chunk.js",
+    "static/js/2.3ae43343.chunk.js.map": "/parwisharsa/static/js/2.3ae43343.chunk.js.map",
+    "static/js/3.151291ab.chunk.js": "/parwisharsa/static/js/3.151291ab.chunk.js",
+    "static/js/3.151291ab.chunk.js.map": "/parwisharsa/static/js/3.151291ab.chunk.js.map",
+    "index.html": "/parwisharsa/index.html",
+    "static/css/main.bad6d679.chunk.css.map": "/parwisharsa/static/css/main.bad6d679.chunk.css.map",
+    "static/js/2.3ae43343.chunk.js.LICENSE.txt": "/parwisharsa/static/js/2.3ae43343.chunk.js.LICENSE.txt",
+    "static/js/main.5376b802.chunk.js.LICENSE.txt": "/parwisharsa/static/js/main.5376b802.chunk.js.LICENSE.txt",
+    "static/media/antoine-barres.bc3299c2.jpg": "/parwisharsa/static/media/antoine-barres.bc3299c2.jpg",
+    "static/media/clouds.3c700c13.png": "/parwisharsa/static/media/clouds.3c700c13.png",
+    "static/media/fog-low.965eab52.png": "/parwisharsa/static/media/fog-low.965eab52.png",
+    "static/media/paper-kit.scss?v=1.2.0": "/parwisharsa/static/media/nucleo-icons.ec16bc4c.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.686a3939.js",
+    "static/js/2.3ae43343.chunk.js",
+    "static/css/main.bad6d679.chunk.css",
+    "static/js/main.5376b802.chunk.js"
+  ]
+}
