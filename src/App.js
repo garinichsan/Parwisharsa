@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+/*!
 
-function App() {
+=========================================================
+* Paper Kit React - v1.2.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/paper-kit-react
+
+* Copyright 2020 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/paper-kit-react/blob/master/LICENSE.md)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+*/
+import React from "react";
+
+// reactstrap components
+
+// core components
+import IndexNavbar from "components/Navbars/IndexNavbar.js";
+import IndexHeader from "components/Headers/IndexHeader.js";
+import DemoFooter from "components/Footers/DemoFooter.js";
+import Tambah from "components/Tambah.js";
+
+function Index() {
+  document.documentElement.classList.remove("nav-open");
+  React.useEffect(() => {
+    document.body.classList.add("index");
+    return function cleanup() {
+      document.body.classList.remove("index");
+    };
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <IndexNavbar />
+      <IndexHeader />
+
+      <Tambah />
+
+      <DemoFooter />
+    </>
   );
 }
 
-export default App;
+export default Index;
