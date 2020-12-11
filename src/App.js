@@ -25,6 +25,7 @@ import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import IndexHeader from "components/Headers/IndexHeader.js";
 import DemoFooter from "components/Footers/DemoFooter.js";
 import Tambah from "components/Tambah.js";
+import List from "components/List.js";
 
 function Index() {
   document.documentElement.classList.remove("nav-open");
@@ -40,6 +41,7 @@ function Index() {
       <IndexHeader />
 
       <Tambah />
+      <List />
 
       <DemoFooter />
     </>
