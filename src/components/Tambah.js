@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, } from "react";
 
 // reactstrap components
 import {
@@ -13,7 +13,51 @@ import {
   InputGroup,
 } from "reactstrap";
 
+import axios from 'axios';
+
 function Tambah() {
+    let [name, setName] = useState("");
+
+    let [harga, setHarga] = useState("");
+    
+    let [desc, setDesc] = useState("");
+
+    const sendObjek = async () => {
+        if ( !( name && harga && desc ) ) {
+            window.alert("Form belum lengkap");
+        } else {
+            try {
+                const response = await axios.post(
+                "http://localhost:8000/api/objek",
+                {
+                    name: name,
+                    harga: harga,
+                    desc: desc,
+                }
+                );
+                if (response.data.status === "success") {
+                    console.log(response);
+                }
+            } catch (err) {
+                window.alert("Maaf, ada kesalahan dari server kami :(");
+            }
+            return;
+        }
+    };
+
+    const changeName = (value) => {
+        setName(value.target.value);
+    };
+
+    const changeHarga = (value) => {
+        setHarga(value.target.value);
+    };
+
+    const changeDesc = (value) => {
+        setDesc(value.target.value);
+    };
+
+
     return(
         
         <div className="section landing-section">
@@ -31,7 +75,12 @@ function Tambah() {
                             <i className="nc-icon nc-sun-fog-29" />
                             </InputGroupText>
                         </InputGroupAddon>
-                        <Input placeholder="Nama Objek" type="text" />
+                        <Input 
+                            placeholder="Nama Objek" 
+                            type="text"
+                            value={name}
+                            onChange={changeName}
+                        />
                         </InputGroup>
                     </Col>
                     <Col md="6">
@@ -42,19 +91,26 @@ function Tambah() {
                             <i className="nc-icon nc-money-coins" />
                             </InputGroupText>
                         </InputGroupAddon>
-                        <Input placeholder="Harga Masuk" type="text" />
+                        <Input 
+                            placeholder="Harga Masuk" 
+                            type="number"
+                            value={harga}
+                            onChange={changeHarga}
+                        />
                         </InputGroup>
                     </Col>
                     </Row>
                     <label>Deskripsi</label>
                     <Input
-                    placeholder="Deskripsi objek pariwisata..."
-                    type="textarea"
-                    rows="4"
+                        placeholder="Deskripsi objek pariwisata..."
+                        rows="4"
+                        type="text"
+                        value={desc}
+                        onChange={changeDesc}
                     />
                     <Row>
                     <Col className="ml-auto mr-auto" md="4">
-                        <Button className="btn-fill" color="default" size="lg" outline>
+                        <Button className="btn-fill" color="default" size="lg" outline onClick={sendObjek}>
                         Tambahkan Objek
                         </Button>
                     </Col>
