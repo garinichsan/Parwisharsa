@@ -167,8 +167,8 @@ function ListObjek() {
                     </h5>
                 </div>
                 <div className="modal-body text-center">
-                <Row>
-                    <Col className="ml-auto mr-auto" md="8">
+                <Row className="mb-5">
+                    <Col className="ml-auto mr-auto" md="11">
                         <Form className="contact-form">
                             <Row>
                             <Col md="6">
