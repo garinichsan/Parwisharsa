@@ -3,8 +3,8 @@ import { Card, CardBody, CardTitle, CardSubtitle, CardText, Container, Row, Col,
 
 import axios from 'axios';
 
-function ListObjek() {
-    const frontend = "http://localhost:8000/api/objek/";
+function ListObjek({user}) {
+    const apiObjek = "http://localhost:8000/api/objek/";
     const [daftarObjek, setDaftarObjek] = useState({});
     const [currentItem, setCurrentItem] = useState( { name: "", harga: "", create_date: Date.now } );
     const [deleteModal, setDeleteModal] = React.useState(false);
@@ -18,7 +18,7 @@ function ListObjek() {
     useEffect(() => {
     const fetchData = async () => {
         const result = await axios.get(
-        frontend
+        apiObjek
         );
         setDaftarObjek(result.data.data);
     };
@@ -26,14 +26,14 @@ function ListObjek() {
     }, [daftarObjek]);
 
     const remove = async (id) => {
-        const result = await axios.delete( frontend + id );
+        const result = await axios.delete( apiObjek + id );
         console.log(result.data);
         setDeleteModal(false);
     }
 
     const edit = async (id) => {
         try {
-            const response = await axios.put( frontend + id, {
+            const response = await axios.put( apiObjek + id, {
                 name: name,
                 harga: harga,
                 desc: desc,
@@ -60,7 +60,6 @@ function ListObjek() {
     const changeDesc = (value) => {
         setDesc(value.target.value);
     };
-
 
 
     return(
@@ -102,7 +101,7 @@ function ListObjek() {
                 </Col>
 
                 {Object.keys(daftarObjek).map(item => (
-                    <Col md="6"> 
+                    <Col md="6" key={item}> 
                         <Card> 
                             <CardBody>
                                 <CardTitle className="title-uppercase"> <Row>
@@ -111,12 +110,16 @@ function ListObjek() {
                                         </Col>
 
                                         <Col md="4">
-                                            <Button color="danger" type="button" size="sm" className="float-right ml-1" onClick={()=>{ setCurrentItem(daftarObjek[item]); setDeleteModal(true) }}>
-                                                <i className="fa fa-trash-o" />
-                                            </Button>
-                                            <Button color="warning" type="button" size="sm" className="float-right ml-1" onClick={()=>{ setCurrentItem(daftarObjek[item]); setName(daftarObjek[item].name); setDesc(daftarObjek[item].desc); setHarga(daftarObjek[item].harga); setEditModal(true) }}>
-                                                <i className="fa fa-pencil-square-o" />
-                                            </Button>
+                                            {(user._id === daftarObjek[item].user_id) ? (
+                                                <>
+                                                <Button color="danger" type="button" size="sm" className="float-right ml-1" onClick={()=>{ setCurrentItem(daftarObjek[item]); setDeleteModal(true) }}>
+                                                    <i className="fa fa-trash-o" />
+                                                </Button>
+                                                <Button color="warning" type="button" size="sm" className="float-right ml-1" onClick={()=>{ setCurrentItem(daftarObjek[item]); setName(daftarObjek[item].name); setDesc(daftarObjek[item].desc); setHarga(daftarObjek[item].harga); setEditModal(true) }}>
+                                                    <i className="fa fa-pencil-square-o" />
+                                                </Button>
+                                                </>
+                                            ) : (<> </>) }
                                             <Button color="info" type="button" size="sm" className="float-right ml-1" onClick={()=>{ setCurrentItem(daftarObjek[item]); setInfoModal(true) }}>
                                                 <i className="fa fa-info-circle" />
                                             </Button>

@@ -13,9 +13,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+  <Switch>
+    <Route path="/" render={(props) => <App {...props} />} />
+    <Redirect to="/" />
+  </Switch>
+</BrowserRouter>,
   document.getElementById('root')
 );
 

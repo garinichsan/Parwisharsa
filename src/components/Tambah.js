@@ -15,11 +15,9 @@ import {
 
 import axios from 'axios';
 
-function Tambah() {
+const Tambah = ({auth,user}) => {
     let [name, setName] = useState("");
-
-    let [harga, setHarga] = useState("");
-    
+    let [harga, setHarga] = useState("");    
     let [desc, setDesc] = useState("");
 
     const sendObjek = async () => {
@@ -33,6 +31,7 @@ function Tambah() {
                     name: name,
                     harga: harga,
                     desc: desc,
+                    user_id: user._id,
                 }
                 );
                 if (response.data.status === "success") {
@@ -63,60 +62,67 @@ function Tambah() {
         <div className="section landing-section">
             <Container>
             <Row>
-                <Col className="ml-auto mr-auto" md="8">
-                <h2 className="text-center">Tambahkan Objek Pariwisata</h2>
-                <Form className="contact-form">
-                    <Row>
-                    <Col md="6">
-                        <label>Nama Objek</label>
-                        <InputGroup>
-                        <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-                            <i className="nc-icon nc-sun-fog-29" />
-                            </InputGroupText>
-                        </InputGroupAddon>
-                        <Input 
-                            placeholder="Nama Objek" 
+                {!auth ? (
+                    <Col className="ml-auto mr-auto" md="8">
+                    <h2 className="text-center">Tambahkan Objek Pariwisata</h2>
+                    <h5 className="text-center">Silakan Sign In Terlebih Dahulu </h5>
+                    </Col>
+                ) : (
+                    <Col className="ml-auto mr-auto" md="8">
+                    <h2 className="text-center"> Hi {user.name} Tambahkan Objek Pariwisata</h2>
+                    <Form className="contact-form">
+                        <Row>
+                        <Col md="6">
+                            <label>Nama Objek</label>
+                            <InputGroup>
+                            <InputGroupAddon addonType="prepend">
+                                <InputGroupText>
+                                <i className="nc-icon nc-sun-fog-29" />
+                                </InputGroupText>
+                            </InputGroupAddon>
+                            <Input 
+                                placeholder="Nama Objek" 
+                                type="text"
+                                value={name}
+                                onChange={changeName}
+                            />
+                            </InputGroup>
+                        </Col>
+                        <Col md="6">
+                            <label>Harga Masuk</label>
+                            <InputGroup>
+                            <InputGroupAddon addonType="prepend">
+                                <InputGroupText>
+                                <i className="nc-icon nc-money-coins" />
+                                </InputGroupText>
+                            </InputGroupAddon>
+                            <Input 
+                                placeholder="Harga Masuk" 
+                                type="number"
+                                value={harga}
+                                onChange={changeHarga}
+                            />
+                            </InputGroup>
+                        </Col>
+                        </Row>
+                        <label>Deskripsi</label>
+                        <Input
+                            placeholder="Deskripsi objek pariwisata..."
+                            rows="4"
                             type="text"
-                            value={name}
-                            onChange={changeName}
+                            value={desc}
+                            onChange={changeDesc}
                         />
-                        </InputGroup>
+                        <Row>
+                        <Col className="ml-auto mr-auto" md="4">
+                            <Button className="btn-fill" color="default" size="lg" outline onClick={sendObjek}>
+                            Tambahkan Objek
+                            </Button>
+                        </Col>
+                        </Row>
+                    </Form>
                     </Col>
-                    <Col md="6">
-                        <label>Harga Masuk</label>
-                        <InputGroup>
-                        <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-                            <i className="nc-icon nc-money-coins" />
-                            </InputGroupText>
-                        </InputGroupAddon>
-                        <Input 
-                            placeholder="Harga Masuk" 
-                            type="number"
-                            value={harga}
-                            onChange={changeHarga}
-                        />
-                        </InputGroup>
-                    </Col>
-                    </Row>
-                    <label>Deskripsi</label>
-                    <Input
-                        placeholder="Deskripsi objek pariwisata..."
-                        rows="4"
-                        type="text"
-                        value={desc}
-                        onChange={changeDesc}
-                    />
-                    <Row>
-                    <Col className="ml-auto mr-auto" md="4">
-                        <Button className="btn-fill" color="default" size="lg" outline onClick={sendObjek}>
-                        Tambahkan Objek
-                        </Button>
-                    </Col>
-                    </Row>
-                </Form>
-                </Col>
+                )};
             </Row>
             </Container>
         </div>

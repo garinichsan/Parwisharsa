@@ -16,7 +16,9 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React, { useState, } from "react";
+
+
 // nodejs library that concatenates strings
 import classnames from "classnames";
 // reactstrap components
@@ -30,9 +32,9 @@ import {
   Container,
 } from "reactstrap";
 
-function IndexNavbar() {
-  const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
-  const [navbarCollapse, setNavbarCollapse] = React.useState(false);
+const IndexNavbar = ({user,auth,handleSignIn,handleSignOut}) => {
+  const [navbarColor, setNavbarColor] = useState("navbar-transparent");
+  const [navbarCollapse, setNavbarCollapse] = useState(false);
 
   const toggleNavbarCollapse = () => {
     setNavbarCollapse(!navbarCollapse);
@@ -60,6 +62,7 @@ function IndexNavbar() {
       window.removeEventListener("scroll", updateNavbarColor);
     };
   });
+
   return (
     <Navbar className={classnames("fixed-top", navbarColor)} expand="lg">
       <Container>
@@ -68,7 +71,7 @@ function IndexNavbar() {
             data-placement="bottom"
             href="/"
             target="_blank"
-            title="Coded by Creative Tim"
+            title="Komunitas Pariwisata Milik Kita"
           >
             Parwisharsa
           </NavbarBrand>
@@ -97,7 +100,7 @@ function IndexNavbar() {
                 target="_blank"
                 title="Follow me on Instagram"
               >
-                <i className="fa fa-instagram" />
+                <i className="fa fa-instagram mt-1" />
                 <p className="d-lg-none">Instagram</p>
               </NavLink>
             </NavItem>
@@ -108,7 +111,7 @@ function IndexNavbar() {
                 target="_blank"
                 title="Star on GitHub"
               >
-                <i className="fa fa-github" />
+                <i className="fa fa-github mt-1" />
                 <p className="d-lg-none">GitHub</p>
               </NavLink>
             </NavItem>
@@ -119,21 +122,43 @@ function IndexNavbar() {
                 target="_blank"
                 title="Connect with my LinkedIn"
               >
-                <i className="fa fa-linkedin" />
+                <i className="fa fa-linkedin mt-1" />
                 <p className="d-lg-none">LinkedIn</p>
               </NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink
-                data-placement="bottom"
-                href="#"
-                target="_blank"
-                title="Sign In to Google"
-              >
-                <i className="fa fa-google" />
-                <p className="d-lg">Sign In</p>
-              </NavLink>
-            </NavItem>
+            {auth ? (
+            
+              <NavItem>
+                <NavLink
+                  data-placement="bottom"
+                  onClick={handleSignOut}
+                  target="_blank"
+                  title="Sign Out"
+                  style={{cursor: 'pointer'}}
+                >
+                  <img
+                      alt="..."
+                      className="img-circle img-no-padding img-responsive"
+                      src={user.picture}
+                      style={{width:"30px", padding: "0", margin:"0"}}
+                    />
+                  <p className="d-lg pl-1">Sign Out</p>
+                </NavLink>
+              </NavItem>
+            ) : (
+              <NavItem>
+                <NavLink
+                  data-placement="bottom"
+                  onClick={handleSignIn}
+                  target="_blank"
+                  title="Sign In to Google"
+                  style={{cursor: 'pointer'}}
+                >
+                  <i className="fa fa-google mt-1" />
+                  <p className="d-lg">Sign In</p>
+                </NavLink>
+              </NavItem>
+            )}
           </Nav>
         </Collapse>
       </Container>
