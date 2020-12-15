@@ -14,11 +14,14 @@ import {
 } from "reactstrap";
 
 import axios from 'axios';
+import {BACKEND} from 'config';
 
 const Tambah = ({auth,user}) => {
     let [name, setName] = useState("");
     let [harga, setHarga] = useState("");    
     let [desc, setDesc] = useState("");
+
+    const apiObjek = BACKEND + "api/objek/";
 
     const sendObjek = async () => {
         if ( !( name && harga && desc ) ) {
@@ -26,7 +29,7 @@ const Tambah = ({auth,user}) => {
         } else {
             try {
                 const response = await axios.post(
-                "http://localhost:8000/api/objek",
+                    apiObjek,
                 {
                     name: name,
                     harga: harga,
