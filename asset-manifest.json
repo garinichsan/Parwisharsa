@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Parwisharsa/static/css/main.a28409a7.chunk.css",
-    "main.js": "/Parwisharsa/static/js/main.249a9b01.chunk.js",
-    "main.js.map": "/Parwisharsa/static/js/main.249a9b01.chunk.js.map",
+    "main.js": "/Parwisharsa/static/js/main.43cf0dac.chunk.js",
+    "main.js.map": "/Parwisharsa/static/js/main.43cf0dac.chunk.js.map",
     "runtime-main.js": "/Parwisharsa/static/js/runtime-main.42498ce6.js",
     "runtime-main.js.map": "/Parwisharsa/static/js/runtime-main.42498ce6.js.map",
     "static/js/2.a9df51e0.chunk.js": "/Parwisharsa/static/js/2.a9df51e0.chunk.js",
@@ -12,7 +12,7 @@
     "index.html": "/Parwisharsa/index.html",
     "static/css/main.a28409a7.chunk.css.map": "/Parwisharsa/static/css/main.a28409a7.chunk.css.map",
     "static/js/2.a9df51e0.chunk.js.LICENSE.txt": "/Parwisharsa/static/js/2.a9df51e0.chunk.js.LICENSE.txt",
-    "static/js/main.249a9b01.chunk.js.LICENSE.txt": "/Parwisharsa/static/js/main.249a9b01.chunk.js.LICENSE.txt",
+    "static/js/main.43cf0dac.chunk.js.LICENSE.txt": "/Parwisharsa/static/js/main.43cf0dac.chunk.js.LICENSE.txt",
     "static/media/antoine-barres.bc3299c2.jpg": "/Parwisharsa/static/media/antoine-barres.bc3299c2.jpg",
     "static/media/clouds.3c700c13.png": "/Parwisharsa/static/media/clouds.3c700c13.png",
     "static/media/fog-low.965eab52.png": "/Parwisharsa/static/media/fog-low.965eab52.png",
@@ -22,6 +22,6 @@
     "static/js/runtime-main.42498ce6.js",
     "static/js/2.a9df51e0.chunk.js",
     "static/css/main.a28409a7.chunk.css",
-    "static/js/main.249a9b01.chunk.js"
+    "static/js/main.43cf0dac.chunk.js"
   ]
 }
