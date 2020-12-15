@@ -231,7 +231,7 @@ function ListObjek({user}) {
                         <Col sm="3"> Harga </Col> <Col sm="1"> : </Col> <Col sm='8'> {currentItem.harga.toLocaleString('id', { style: 'currency', currency: 'IDR', })} </Col>
                         <Col sm="3"> Deskripsi </Col> <Col sm="1"> : </Col> <Col sm='8'> {currentItem.desc} </Col>
                         <Col sm="3"> Dibuat </Col> <Col sm="1"> : </Col> <Col sm='8'> {new Date( currentItem.create_date ).toLocaleDateString("id", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: "numeric", second: "numeric", timeZone: "Asia/Jakarta"})} </Col>
-                        <Col sm="3"> Oleh </Col> <Col sm="1"> : </Col> <Col sm='8'> {currentItem.owner.name} {console.log(currentItem.owner)}
+                        <Col sm="3"> Oleh </Col> <Col sm="1"> : </Col> <Col sm='8'> {currentItem.owner.name} 
                             <img
                                 alt="..."
                                 className="img-circle img-no-padding img-responsive float-right"

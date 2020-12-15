@@ -53,6 +53,7 @@ function Index() {
         );
         if(result.data.authenticated){
           setUser(result.data.user);
+          console.log(result.data.user);
           setAuth(true);
         }
     };
