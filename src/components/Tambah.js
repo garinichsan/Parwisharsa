@@ -31,7 +31,7 @@ const Tambah = ({auth,user}) => {
                     name: name,
                     harga: harga,
                     desc: desc,
-                    user_id: user._id,
+                    owner: user,
                 }
                 );
                 if (response.data.status === "success") {
